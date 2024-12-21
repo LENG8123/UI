@@ -1,4 +1,154 @@
 repeat task.wait() until game:IsLoaded()
+local TweenService = game:GetService("TweenService")
+local LocalizationService = game:GetService("LocalizationService")
+local LocalizationService = game:GetService("LocalizationService")
+local player = game.Players.LocalPlayer
+
+local result, code = pcall(function()
+	return LocalizationService:GetCountryRegionForPlayerAsync(player)
+end)   
+local ScreenGui = Instance.new("ScreenGui")
+local MAIN = Instance.new("Frame")
+local LOGO = Instance.new("ImageLabel")
+local UICorner = Instance.new("UICorner")
+local BAR = Instance.new("Frame")
+local UICorner_2 = Instance.new("UICorner")
+local TITLE = Instance.new("TextLabel")
+local LOADING = Instance.new("TextLabel")
+local WindowStroke = Instance.new("UIStroke")
+
+ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+MAIN.Name = "MAIN"
+MAIN.Parent = ScreenGui
+MAIN.BackgroundColor3 = Color3.fromRGB(4, 4, 4)
+MAIN.AnchorPoint = Vector2.new(0.5,0.5)
+MAIN.Position = UDim2.new(0.5, 0, 0.5, 0)
+MAIN.Size = UDim2.new(0, 357, 0, 158)
+
+WindowStroke.Name = "WindowStroke"
+WindowStroke.Parent = MAIN
+WindowStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+WindowStroke.Color = Color3.fromRGB(255,255,255)
+WindowStroke.LineJoinMode = Enum.LineJoinMode.Round
+WindowStroke.Thickness = 2
+WindowStroke.Transparency = 0
+WindowStroke.Enabled = true
+WindowStroke.Archivable = true
+
+LOGO.Name = "LOGO"
+LOGO.Parent = MAIN
+LOGO.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+LOGO.BackgroundTransparency = 1.000
+LOGO.Position = UDim2.new(-0.0323287919, 0, -0.079336822, 0)
+LOGO.Size = UDim2.new(0, 162, 0, 160)
+LOGO.Image = "rbxassetid:/131231007815032"--11354741327
+
+UICorner.CornerRadius = UDim.new(0, 5)
+UICorner.Parent = MAIN
+
+BAR.Name = "BAR"
+BAR.Parent = MAIN
+BAR.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+BAR.BorderSizePixel = 0
+BAR.Position = UDim2.new(0.106, 0,0.835, 0)
+BAR.Size = UDim2.new(0, 0, 0, 15)
+
+UICorner_2.Parent = BAR
+
+TITLE.Name = "TITLE"
+TITLE.Parent = MAIN
+TITLE.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TITLE.BackgroundTransparency = 1.000
+TITLE.Position = UDim2.new(0.403277725, 0, 0.0506329127, 0)
+TITLE.Size = UDim2.new(0, 169, 0, 44)
+TITLE.Font = Enum.Font.Highway
+TITLE.Text = "冷脚本"
+TITLE.TextColor3 = Color3.fromRGB(0, 0, 255)
+TITLE.TextScaled = true
+TITLE.TextSize = 14.000
+TITLE.TextWrapped = true
+
+LOADING.Name = "LOADING"
+LOADING.Parent = MAIN
+LOADING.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+LOADING.BackgroundTransparency = 1.000
+LOADING.Position = UDim2.new(0.378, 0,0.43, 0)
+LOADING.Size = UDim2.new(0, 169, 0, 44)
+LOADING.Font = Enum.Font.SourceSansItalic
+LOADING.Text = "加载中…"
+LOADING.TextColor3 = Color3.fromRGB(0, 0, 255)
+LOADING.TextSize = 20.000
+LOADING.TextWrapped = true
+wait(1)
+LOADING.Text = "获取数据..."
+BAR:TweenSize(UDim2.new(0, 150,0, 15), Enum.EasingDirection.Out, Enum.EasingStyle.Quart, .3, true)
+wait(1)
+LOADING.Text = "你好 " ..game.Players.LocalPlayer.DisplayName.. " ，来自: ".. code
+BAR:TweenSize(UDim2.new(0, 200,0, 15), Enum.EasingDirection.Out, Enum.EasingStyle.Quart, .3, true)
+wait(1)
+LOADING.Text = "检查游戏..."
+BAR:TweenSize(UDim2.new(0, 250,0, 15), Enum.EasingDirection.Out, Enum.EasingStyle.Quart, .3, true)
+wait(1)
+LOADING.Text = "欢迎使用冷脚本"
+BAR:TweenSize(UDim2.new(0, 260,0, 15), Enum.EasingDirection.Out, Enum.EasingStyle.Quart, .3, true)
+wait(1)
+LOADING.Text = "谢谢使用"
+BAR:TweenSize(UDim2.new(0, 285,0, 15), Enum.EasingDirection.Out, Enum.EasingStyle.Quart, .3, true)
+wait(1)
+MAIN:TweenSize(UDim2.new(0,0,0,5),"Out","Quad",1,true)
+LOGO:Destroy()
+TITLE:Destroy()
+LOADING:Destroy()
+BAR:Destroy()
+wait(1)
+MAIN:Destroy()
+wait(1)
+
+local UserGui = Instance.new("ScreenGui", game.CoreGui)
+local UserLabel = Instance.new("TextLabel", UserGui)
+local UIGradient = Instance.new("UIGradient")
+
+UserGui.Name = "UserGui"
+UserGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+UserGui.Enabled = true
+UserLabel.Name = "UserLabel"
+UserLabel.BackgroundColor3 = Color3.new(1, 1, 1)
+UserLabel.BackgroundTransparency = 1
+UserLabel.BorderColor3 = Color3.new(0, 0, 0)
+UserLabel.Position = UDim2.new(0.80, 0.80, 0.00090, 0)
+UserLabel.Size = UDim2.new(0, 135, 0, 50)
+UserLabel.Font = Enum.Font.GothamSemibold
+UserLabel.Text = "冷脚本 UGC User: "..game.Players.LocalPlayer.Character.Name
+UserLabel.TextColor3 = Color3.new(1, 1, 1)
+UserLabel.TextScaled = true
+UserLabel.TextSize = 14
+UserLabel.TextWrapped = true
+UserLabel.Visible = true
+
+UIGradient.Color = ColorSequence.new{
+    ColorSequenceKeypoint.new(0.00, Color3.fromRGB(255, 0, 0)),
+    ColorSequenceKeypoint.new(0.10, Color3.fromRGB(255, 127, 0)),
+    ColorSequenceKeypoint.new(0.20, Color3.fromRGB(255, 255, 0)),
+    ColorSequenceKeypoint.new(0.30, Color3.fromRGB(0, 255, 0)),
+    ColorSequenceKeypoint.new(0.40, Color3.fromRGB(0, 255, 255)),
+    ColorSequenceKeypoint.new(0.50, Color3.fromRGB(0, 0, 255)),
+    ColorSequenceKeypoint.new(0.60, Color3.fromRGB(139, 0, 255)),
+    ColorSequenceKeypoint.new(0.70, Color3.fromRGB(255, 0, 0)),
+    ColorSequenceKeypoint.new(0.80, Color3.fromRGB(255, 127, 0)),
+    ColorSequenceKeypoint.new(0.90, Color3.fromRGB(255, 255, 0)),
+    ColorSequenceKeypoint.new(1.00, Color3.fromRGB(0, 255, 0))
+}
+UIGradient.Rotation = 10
+UIGradient.Parent = UserLabel
+
+local TweenService = game:GetService("TweenService")
+local tweeninfo = TweenInfo.new(7, Enum.EasingStyle.Linear, Enum.EasingDirection.In, -1)
+local tween = TweenService:Create(UIGradient, tweeninfo, {Rotation = 360})
+tween:Play()
+
+wait()
 local library = {}
 local ToggleUI = false
 library.currentTab = nil
@@ -28,7 +178,7 @@ function Ripple(obj)
 		Ripple.BackgroundColor3 = Color3.fromRGB(139, 0, 255)
 		Ripple.BackgroundTransparency = 1.000
 		Ripple.ZIndex = 8
-		Ripple.Image = "rbxassetid://87437251671184"
+		Ripple.Image = "rbxassetid://18941591417"
 		Ripple.ImageTransparency = 0.800
 		Ripple.ScaleType = Enum.ScaleType.Fit
 		Ripple.ImageColor3 = Color3.fromRGB(139, 0, 255)
@@ -121,10 +271,10 @@ function library.new(library, name,theme)
           v:Destroy()
         end
       end
--------------------------AL------------------------------
-ALTransparency = 0.6
-ALcolor = Color3.fromRGB(0,255,127)
--------------------------AL------------------------------
+-------------------------LSTMArchive------------------------------
+LSTransparency = 0.6
+LScolor = Color3.fromRGB(255, 0, 0)
+-------------------------LSTMArchive------------------------------
 if theme == 'dark' then
     MainColor = Color3.fromRGB(25, 25, 25)
     Background = Color3.fromRGB(25, 25, 25)
@@ -240,7 +390,7 @@ end
       
       TabMain.Name = "TabMain"
       TabMain.Parent = Main
-      TabMain.BackgroundColor3 = Color3.fromRGB(139, 0, 255)
+      TabMain.BackgroundColor3 = LScolor
       TabMain.BackgroundTransparency = 1.000
       TabMain.Position = UDim2.new(0.217000037, 0, 0, 3)
       TabMain.Size = UDim2.new(0, 448, 0, 353)
@@ -253,7 +403,7 @@ end
       
       SB.Name = "SB"
       SB.Parent = Main
-      SB.BackgroundColor3 = Color3.fromRGB(139, 0, 255)
+      SB.BackgroundColor3 = LScolor
       SB.BorderColor3 = MainColor
       SB.Size = UDim2.new(0, 8, 0, 353)
       SB.Transparency = 1.0
@@ -264,8 +414,8 @@ end
       
       Side.Name = "Side"
       Side.Parent = SB
-      Side.BackgroundColor3 = Color3.fromRGB(139, 0, 255)
-      Side.BorderColor3 = Color3.fromRGB(139, 0, 255)
+      Side.BackgroundColor3 = LScolor
+      Side.BorderColor3 = LScolor
       Side.BorderSizePixel = 0
       Side.ClipsDescendants = true
       Side.Position = UDim2.new(1, 0, 0, 0)
@@ -280,7 +430,7 @@ end
       TabBtns.Name = "TabBtns"
       TabBtns.Parent = Side
       TabBtns.Active = true
-      TabBtns.BackgroundColor3 = Color3.fromRGB(139, 0, 255)
+      TabBtns.BackgroundColor3 = LScolor
       TabBtns.BackgroundTransparency = 1.000
       TabBtns.BorderSizePixel = 0
       TabBtns.Position = UDim2.new(0, 0, 0.0973535776, 0)
@@ -295,13 +445,13 @@ end
       
       ScriptTitle.Name = "ScriptTitle"
       ScriptTitle.Parent = Side
-      ScriptTitle.BackgroundColor3 = Color3.fromRGB(139, 0, 255)
+      ScriptTitle.BackgroundColor3 = LScolor
       ScriptTitle.BackgroundTransparency = 1.000
       ScriptTitle.Position = UDim2.new(0, 0, 0.00953488424, 0)
       ScriptTitle.Size = UDim2.new(0, 102, 0, 20)
       ScriptTitle.Font = Enum.Font.GothamSemibold
       ScriptTitle.Text = name
-      ScriptTitle.TextColor3 = Color3.fromRGB(139, 0, 255)
+      ScriptTitle.TextColor3 = LScolor
       ScriptTitle.TextSize = 14.000
       ScriptTitle.TextScaled = true
       ScriptTitle.TextXAlignment = Enum.TextXAlignment.Left
@@ -416,18 +566,18 @@ end
       --[[
       Open.Name = "Open"
       Open.Parent = dogent
-      Open.BackgroundColor3 = Color3.fromRGB(139, 0, 255)
+      Open.BackgroundColor3 = LScolor
       Open.Position = UDim2.new(0.00829315186, 0, 0.31107837, 0)
       Open.Size = UDim2.new(0, 61, 0, 32)
       Open.Font = Enum.Font.SourceSans
       Open.Text = "King.Script/King"
-      Open.TextColor3 = Color3.fromRGB(139, 0, 255)
+      Open.TextColor3 = LScolor
       Open.TextSize = 15.000
       Open.Active = true
       Open.Draggable = true
       Open.MouseButton1Click:Connect(function()
           Main.Visible = not Main.Visible
-          Open.Text=Main.Visible and "King.Script隐藏" or "King打开"
+          Open.Text=Main.Visible and "隐藏" or "打开"
       end)
 ]]
 
@@ -473,7 +623,7 @@ UIG.Parent = Open
         Tab.Name = "Tab"
         Tab.Parent = TabMain
         Tab.Active = true
-        Tab.BackgroundColor3 = Color3.fromRGB(139, 0, 255)
+        Tab.BackgroundColor3 = LScolor
         Tab.BackgroundTransparency = 1.000
         Tab.Size = UDim2.new(1, 0, 1, 0)
         Tab.ScrollBarThickness = 2
@@ -484,25 +634,25 @@ UIG.Parent = Open
         TabIco.BackgroundTransparency = 1.000
         TabIco.BorderSizePixel = 0
         TabIco.Size = UDim2.new(0, 24, 0, 24)
-        TabIco.Image = "rbxassetid://7734068321" or icon and "rbxassetid://"..icon
+        TabIco.Image = "rbxassetid://16060333448" or icon and "rbxassetid://"..icon
         TabIco.ImageTransparency = 0.2
         
         TabText.Name = "TabText"
         TabText.Parent = TabIco
-        TabText.BackgroundColor3 = Color3.fromRGB(139, 0, 255)
+        TabText.BackgroundColor3 = LScolor
         TabText.BackgroundTransparency = 1.000
         TabText.Position = UDim2.new(1.41666663, 0, 0, 0)
         TabText.Size = UDim2.new(0, 76, 0, 24)
         TabText.Font = Enum.Font.GothamSemibold
         TabText.Text = name
-        TabText.TextColor3 = ALcolor
+        TabText.TextColor3 = LScolor
         TabText.TextSize = 14.000
         TabText.TextXAlignment = Enum.TextXAlignment.Left
         TabText.TextTransparency = 0.2
         
         TabBtn.Name = "TabBtn"
         TabBtn.Parent = TabIco
-        TabBtn.BackgroundColor3 = Color3.fromRGB(139, 0, 255)
+        TabBtn.BackgroundColor3 = LScolor
         TabBtn.BackgroundTransparency = 1.000
         TabBtn.BorderSizePixel = 0
         TabBtn.Size = UDim2.new(0, 110, 0, 24)
@@ -529,12 +679,7 @@ UIG.Parent = Open
         TabL:GetPropertyChangedSignal("AbsoluteContentSize"):Connect(function()
           Tab.CanvasSize = UDim2.new(0, 0, 0, TabL.AbsoluteContentSize.Y + 8)
         end)
-------------------------------------------------------AL.King音乐-------------------------------------------------------
-    local sound = Instance.new("Sound")
-    sound.SoundId = "rbxassetid://6797864253" --音乐id
-    sound.Parent = game.Workspace
-    sound:Play()
----------------分割线-------------------------------分割线-------------------------------分割线----------------
+
         local tab = {}
         function tab.section(tab, name, TabVal)
           local Section = Instance.new("Frame")
@@ -560,13 +705,13 @@ UIG.Parent = Open
           
           SectionText.Name = "SectionText"
           SectionText.Parent = Section
-          SectionText.BackgroundColor3 = Color3.fromRGB(139, 0, 255)
+          SectionText.BackgroundColor3 = LScolor
           SectionText.BackgroundTransparency = 1.000
           SectionText.Position = UDim2.new(0.0887396261, 0, 0, 0)
           SectionText.Size = UDim2.new(0, 401, 0, 36)
           SectionText.Font = Enum.Font.GothamSemibold
           SectionText.Text = name
-          SectionText.TextColor3 = ALcolor
+          SectionText.TextColor3 = LScolor
           SectionText.TextSize = 16.000
           SectionText.TextXAlignment = Enum.TextXAlignment.Left
           
@@ -576,14 +721,14 @@ UIG.Parent = Open
           SectionOpen.BorderSizePixel = 0
           SectionOpen.Position = UDim2.new(0, -33, 0, 5)
           SectionOpen.Size = UDim2.new(0, 26, 0, 26)
-          SectionOpen.Image = "rbxassetid://7734068321"
+          SectionOpen.Image = "rbxassetid://6031302934"
           
           SectionOpened.Name = "SectionOpened"
           SectionOpened.Parent = SectionOpen
           SectionOpened.BackgroundTransparency = 1.000
           SectionOpened.BorderSizePixel = 0
           SectionOpened.Size = UDim2.new(0, 26, 0, 26)
-          SectionOpened.Image = "rbxassetid://87437251671184"
+          SectionOpened.Image = "rbxassetid://6031302932"
           SectionOpened.ImageTransparency = 1.000
     
           SectionToggle.Name = "SectionToggle"
@@ -594,7 +739,7 @@ UIG.Parent = Open
           
           Objs.Name = "Objs"
           Objs.Parent = Section
-          Objs.BackgroundColor3 = Color3.fromRGB(139, 0, 255)
+          Objs.BackgroundColor3 = LScolor
           Objs.BackgroundTransparency = 1
           Objs.BorderSizePixel = 0
           Objs.Position = UDim2.new(0, 6, 0, 36)
@@ -634,7 +779,7 @@ UIG.Parent = Open
             
             BtnModule.Name = "BtnModule"
             BtnModule.Parent = Objs
-            BtnModule.BackgroundColor3 = Color3.fromRGB(139, 0, 255)
+            BtnModule.BackgroundColor3 = LScolor
             BtnModule.BackgroundTransparency = 1.000
             BtnModule.BorderSizePixel = 0
             BtnModule.Position = UDim2.new(0, 0, 0, 0)
@@ -649,10 +794,10 @@ UIG.Parent = Open
             Btn.AutoButtonColor = false
             Btn.Font = Enum.Font.GothamSemibold
             Btn.Text = "   " .. text
-            Btn.TextColor3 = ALcolor
+            Btn.TextColor3 = LScolor
             Btn.TextSize = 16.000
             Btn.TextXAlignment = Enum.TextXAlignment.Left
-            Btn.BackgroundTransparency = ALTransparency
+            Btn.BackgroundTransparency = LSTransparency
             
             BtnC.CornerRadius = UDim.new(0, 6)
             BtnC.Name = "BtnC"
@@ -673,7 +818,7 @@ UIG.Parent = Open
           
           LabelModule.Name = "LabelModule"
           LabelModule.Parent = Objs
-          LabelModule.BackgroundColor3 = Color3.fromRGB(139, 0, 255)
+          LabelModule.BackgroundColor3 = LScolor
           LabelModule.BackgroundTransparency = 1.000
           LabelModule.BorderSizePixel = 0
           LabelModule.Position = UDim2.new(0, 0, NAN, 0)
@@ -683,8 +828,8 @@ UIG.Parent = Open
           TextLabel.Size = UDim2.new(0, 428, 0, 22)
           TextLabel.Font = Enum.Font.GothamSemibold
           TextLabel.Text = text
-          TextLabel.TextColor3 = ALcolor
-          TextLabel.BackgroundTransparency = ALTransparency
+          TextLabel.TextColor3 = LScolor
+          TextLabel.BackgroundTransparency = LSTransparency
           TextLabel.TextSize = 14.000
     
           LabelC.CornerRadius = UDim.new(0, 6)
@@ -711,7 +856,7 @@ UIG.Parent = Open
             
             ToggleModule.Name = "ToggleModule"
             ToggleModule.Parent = Objs
-            ToggleModule.BackgroundColor3 = Color3.fromRGB(139, 0, 255)
+            ToggleModule.BackgroundColor3 = LScolor
             ToggleModule.BackgroundTransparency = 1.000
             ToggleModule.BorderSizePixel = 0
             ToggleModule.Position = UDim2.new(0, 0, 0, 0)
@@ -720,13 +865,13 @@ UIG.Parent = Open
             ToggleBtn.Name = "ToggleBtn"
             ToggleBtn.Parent = ToggleModule
             ToggleBtn.BackgroundColor3 = zyColor
-            ToggleBtn.BackgroundTransparency = ALTransparency
+            ToggleBtn.BackgroundTransparency = LSTransparency
             ToggleBtn.BorderSizePixel = 0
             ToggleBtn.Size = UDim2.new(0, 428, 0, 38)
             ToggleBtn.AutoButtonColor = false
             ToggleBtn.Font = Enum.Font.GothamSemibold
             ToggleBtn.Text = "   " .. text
-            ToggleBtn.TextColor3 = ALcolor
+            ToggleBtn.TextColor3 = LScolor
             ToggleBtn.TextSize = 16.000
             ToggleBtn.TextXAlignment = Enum.TextXAlignment.Left
             
@@ -759,7 +904,7 @@ UIG.Parent = Open
               SetState = function(self, state)
                 if state == nil then state = not library.flags[flag] end
                 if library.flags[flag] == state then return end
-                services.TweenService:Create(ToggleSwitch, TweenInfo.new(0.2), {Position = UDim2.new(0, (state and ToggleSwitch.Size.X.Offset / 2 or 0), 0, 0), BackgroundColor3 = (state and Color3.fromRGB(139, 0, 255) or beijingColor)}):Play()
+                services.TweenService:Create(ToggleSwitch, TweenInfo.new(0.2), {Position = UDim2.new(0, (state and ToggleSwitch.Size.X.Offset / 2 or 0), 0, 0), BackgroundColor3 = (state and LScolor or beijingColor)}):Play()
                 library.flags[flag] = state
                 callback(state)
               end,
@@ -819,7 +964,7 @@ UIG.Parent = Open
     
             KeybindModule.Name = "KeybindModule"
             KeybindModule.Parent = Objs
-            KeybindModule.BackgroundColor3 = Color3.fromRGB(139, 0, 255)
+            KeybindModule.BackgroundColor3 = LScolor
             KeybindModule.BackgroundTransparency = 1.000
             KeybindModule.BorderSizePixel = 0
             KeybindModule.Position = UDim2.new(0, 0, 0, 0)
@@ -833,7 +978,7 @@ UIG.Parent = Open
             KeybindBtn.AutoButtonColor = false
             KeybindBtn.Font = Enum.Font.GothamSemibold
             KeybindBtn.Text = "   " .. text
-            KeybindBtn.TextColor3 = ALcolor
+            KeybindBtn.TextColor3 = LScolor
             KeybindBtn.TextSize = 16.000
             KeybindBtn.TextXAlignment = Enum.TextXAlignment.Left
             
@@ -850,7 +995,7 @@ UIG.Parent = Open
             KeybindValue.AutoButtonColor = false
             KeybindValue.Font = Enum.Font.Gotham
             KeybindValue.Text = keyTxt
-            KeybindValue.TextColor3 = Color3.fromRGB(139, 0, 255)
+            KeybindValue.TextColor3 = LScolor
             KeybindValue.TextSize = 14.000
             
             KeybindValueC.CornerRadius = UDim.new(0, 6)
@@ -916,7 +1061,7 @@ UIG.Parent = Open
     
             TextboxModule.Name = "TextboxModule"
             TextboxModule.Parent = Objs
-            TextboxModule.BackgroundColor3 = Color3.fromRGB(139, 0, 255)
+            TextboxModule.BackgroundColor3 = LScolor
             TextboxModule.BackgroundTransparency = 1.000
             TextboxModule.BorderSizePixel = 0
             TextboxModule.Position = UDim2.new(0, 0, 0, 0)
@@ -925,13 +1070,13 @@ UIG.Parent = Open
             TextboxBack.Name = "TextboxBack"
             TextboxBack.Parent = TextboxModule
             TextboxBack.BackgroundColor3 = zyColor
-            TextboxBack.BackgroundTransparency = ALTransparency
+            TextboxBack.BackgroundTransparency = LSTransparency
             TextboxBack.BorderSizePixel = 0
             TextboxBack.Size = UDim2.new(0, 428, 0, 38)
             TextboxBack.AutoButtonColor = false
             TextboxBack.Font = Enum.Font.GothamSemibold
             TextboxBack.Text = "   " .. text
-            TextboxBack.TextColor3 = ALcolor
+            TextboxBack.TextColor3 = LScolor
             TextboxBack.TextSize = 16.000
             TextboxBack.TextXAlignment = Enum.TextXAlignment.Left
             
@@ -948,7 +1093,7 @@ UIG.Parent = Open
             BoxBG.AutoButtonColor = false
             BoxBG.Font = Enum.Font.Gotham
             BoxBG.Text = ""
-            BoxBG.TextColor3 = Color3.fromRGB(139, 0, 255)
+            BoxBG.TextColor3 = LScolor
             BoxBG.TextSize = 14.000
             
             BoxBGC.CornerRadius = UDim.new(0, 6)
@@ -956,13 +1101,13 @@ UIG.Parent = Open
             BoxBGC.Parent = BoxBG
             
             TextBox.Parent = BoxBG
-            TextBox.BackgroundColor3 = Color3.fromRGB(139, 0, 255)
+            TextBox.BackgroundColor3 = LScolor
             TextBox.BackgroundTransparency = 1.000
             TextBox.BorderSizePixel = 0
             TextBox.Size = UDim2.new(1, 0, 1, 0)
             TextBox.Font = Enum.Font.Gotham
             TextBox.Text = default
-            TextBox.TextColor3 = Color3.fromRGB(139, 0, 255)
+            TextBox.TextColor3 = LScolor
             TextBox.TextSize = 14.000
             
             TextboxBackL.Name = "TextboxBackL"
@@ -1017,7 +1162,7 @@ UIG.Parent = Open
             
             SliderModule.Name = "SliderModule"
             SliderModule.Parent = Objs
-            SliderModule.BackgroundColor3 = Color3.fromRGB(139, 0, 255)
+            SliderModule.BackgroundColor3 = LScolor
             SliderModule.BackgroundTransparency = 1.000
             SliderModule.BorderSizePixel = 0
             SliderModule.Position = UDim2.new(0, 0, 0, 0)
@@ -1026,13 +1171,13 @@ UIG.Parent = Open
             SliderBack.Name = "SliderBack"
             SliderBack.Parent = SliderModule
             SliderBack.BackgroundColor3 = zyColor
-            SliderBack.BackgroundTransparency = ALTransparency
+            SliderBack.BackgroundTransparency = LSTransparency
             SliderBack.BorderSizePixel = 0
             SliderBack.Size = UDim2.new(0, 428, 0, 38)
             SliderBack.AutoButtonColor = false
             SliderBack.Font = Enum.Font.GothamSemibold
             SliderBack.Text = "   " .. text
-            SliderBack.TextColor3 = ALcolor
+            SliderBack.TextColor3 = LScolor
             SliderBack.TextSize = 16.000
             SliderBack.TextXAlignment = Enum.TextXAlignment.Left
             
@@ -1044,7 +1189,7 @@ UIG.Parent = Open
             SliderBar.Parent = SliderBack
             SliderBar.AnchorPoint = Vector2.new(0, 0.5)
             SliderBar.BackgroundColor3 = Background
-            SliderBar.BackgroundTransparency = ALTransparency
+            SliderBar.BackgroundTransparency = LSTransparency
             SliderBar.BorderSizePixel = 0
             SliderBar.Position = UDim2.new(0.369000018, 40, 0.5, 0)
             SliderBar.Size = UDim2.new(0, 140, 0, 12)
@@ -1055,7 +1200,7 @@ UIG.Parent = Open
             
             SliderPart.Name = "SliderPart"
             SliderPart.Parent = SliderBar
-            SliderPart.BackgroundColor3 = Color3.fromRGB(139, 0, 255)
+            SliderPart.BackgroundColor3 = LScolor
             SliderPart.BorderSizePixel = 0
             SliderPart.Size = UDim2.new(0, 54, 0, 13)
             
@@ -1066,14 +1211,14 @@ UIG.Parent = Open
             SliderValBG.Name = "SliderValBG"
             SliderValBG.Parent = SliderBack
             SliderValBG.BackgroundColor3 = Background
-            SliderValBG.BackgroundTransparency = ALTransparency
+            SliderValBG.BackgroundTransparency = LSTransparency
             SliderValBG.BorderSizePixel = 0
             SliderValBG.Position = UDim2.new(0.883177578, 0, 0.131578952, 0)
             SliderValBG.Size = UDim2.new(0, 44, 0, 28)
             SliderValBG.AutoButtonColor = false
             SliderValBG.Font = Enum.Font.Gotham
             SliderValBG.Text = ""
-            SliderValBG.TextColor3 = Color3.fromRGB(139, 0, 255)
+            SliderValBG.TextColor3 = LScolor
             SliderValBG.TextSize = 14.000
             
             SliderValBGC.CornerRadius = UDim.new(0, 6)
@@ -1082,39 +1227,39 @@ UIG.Parent = Open
             
             SliderValue.Name = "SliderValue"
             SliderValue.Parent = SliderValBG
-            SliderValue.BackgroundColor3 = Color3.fromRGB(139, 0, 255)
+            SliderValue.BackgroundColor3 = LScolor
             SliderValue.BackgroundTransparency = 1.000
             SliderValue.BorderSizePixel = 0
             SliderValue.Size = UDim2.new(1, 0, 1, 0)
             SliderValue.Font = Enum.Font.Gotham
             SliderValue.Text = "1000"
-            SliderValue.TextColor3 = Color3.fromRGB(139, 0, 255)
+            SliderValue.TextColor3 = LScolor
             SliderValue.TextSize = 14.000
             
             MinSlider.Name = "MinSlider"
             MinSlider.Parent = SliderModule
-            MinSlider.BackgroundColor3 = Color3.fromRGB(139, 0, 255)
+            MinSlider.BackgroundColor3 = LScolor
             MinSlider.BackgroundTransparency = 1.000
             MinSlider.BorderSizePixel = 0
             MinSlider.Position = UDim2.new(0.296728969, 40, 0.236842096, 0)
             MinSlider.Size = UDim2.new(0, 20, 0, 20)
             MinSlider.Font = Enum.Font.Gotham
             MinSlider.Text = "-"
-            MinSlider.TextColor3 = ALcolor
+            MinSlider.TextColor3 = LScolor
             MinSlider.TextSize = 24.000
             MinSlider.TextWrapped = true
             
             AddSlider.Name = "AddSlider"
             AddSlider.Parent = SliderModule
             AddSlider.AnchorPoint = Vector2.new(0, 0.5)
-            AddSlider.BackgroundColor3 = Color3.fromRGB(139, 0, 255)
+            AddSlider.BackgroundColor3 = LScolor
             AddSlider.BackgroundTransparency = 1.000
             AddSlider.BorderSizePixel = 0
             AddSlider.Position = UDim2.new(0.810906529, 0, 0.5, 0)
             AddSlider.Size = UDim2.new(0, 20, 0, 20)
             AddSlider.Font = Enum.Font.Gotham
             AddSlider.Text = "+"
-            AddSlider.TextColor3 = ALcolor
+            AddSlider.TextColor3 = LScolor
             AddSlider.TextSize = 24.000
             AddSlider.TextWrapped = true
             
@@ -1243,7 +1388,7 @@ UIG.Parent = Open
     
             DropdownModule.Name = "DropdownModule"
             DropdownModule.Parent = Objs
-            DropdownModule.BackgroundColor3 = Color3.fromRGB(139, 0, 255)
+            DropdownModule.BackgroundColor3 = LScolor
             DropdownModule.BackgroundTransparency = 1.000
             DropdownModule.BorderSizePixel = 0
             DropdownModule.ClipsDescendants = true
@@ -1253,13 +1398,13 @@ UIG.Parent = Open
             DropdownTop.Name = "DropdownTop"
             DropdownTop.Parent = DropdownModule
             DropdownTop.BackgroundColor3 = zyColor
-            DropdownTop.BackgroundTransparency = ALTransparency
+            DropdownTop.BackgroundTransparency = LSTransparency
             DropdownTop.BorderSizePixel = 0
             DropdownTop.Size = UDim2.new(0, 428, 0, 38)
             DropdownTop.AutoButtonColor = false
             DropdownTop.Font = Enum.Font.GothamSemibold
             DropdownTop.Text = ""
-            DropdownTop.TextColor3 = ALcolor
+            DropdownTop.TextColor3 = LScolor
             DropdownTop.TextSize = 16.000
             DropdownTop.TextXAlignment = Enum.TextXAlignment.Left
             
@@ -1270,29 +1415,29 @@ UIG.Parent = Open
             DropdownOpen.Name = "DropdownOpen"
             DropdownOpen.Parent = DropdownTop
             DropdownOpen.AnchorPoint = Vector2.new(0, 0.5)
-            DropdownOpen.BackgroundColor3 = Color3.fromRGB(139, 0, 255)
+            DropdownOpen.BackgroundColor3 = LScolor
             DropdownOpen.BackgroundTransparency = 1.000
             DropdownOpen.BorderSizePixel = 0
             DropdownOpen.Position = UDim2.new(0.918383181, 0, 0.5, 0)
             DropdownOpen.Size = UDim2.new(0, 20, 0, 20)
             DropdownOpen.Font = Enum.Font.Gotham
             DropdownOpen.Text = "+"
-            DropdownOpen.TextColor3 = ALcolor
+            DropdownOpen.TextColor3 = LScolor
             DropdownOpen.TextSize = 24.000
             DropdownOpen.TextWrapped = true
             
             DropdownText.Name = "DropdownText"
             DropdownText.Parent = DropdownTop
-            DropdownText.BackgroundColor3 = Color3.fromRGB(139, 0, 255)
+            DropdownText.BackgroundColor3 = LScolor
             DropdownText.BackgroundTransparency = 1.000
             DropdownText.BorderSizePixel = 0
             DropdownText.Position = UDim2.new(0.0373831764, 0, 0, 0)
             DropdownText.Size = UDim2.new(0, 184, 0, 38)
             DropdownText.Font = Enum.Font.GothamSemibold
-            DropdownText.PlaceholderColor3 = Color3.fromRGB(139, 0, 255)
+            DropdownText.PlaceholderColor3 = LScolor
             DropdownText.PlaceholderText = text
             DropdownText.Text = ""
-            DropdownText.TextColor3 = Color3.fromRGB(139, 0, 255)
+            DropdownText.TextColor3 = LScolor
             DropdownText.TextSize = 16.000
             DropdownText.TextXAlignment = Enum.TextXAlignment.Left
             
@@ -1367,7 +1512,7 @@ UIG.Parent = Open
               Option.AutoButtonColor = false
               Option.Font = Enum.Font.Gotham
               Option.Text = option
-              Option.TextColor3 = ALcolor
+              Option.TextColor3 = LScolor
               Option.TextSize = 14.000
               
               OptionC.CornerRadius = UDim.new(0, 6)
