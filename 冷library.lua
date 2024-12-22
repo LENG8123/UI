@@ -120,7 +120,8 @@ UserLabel.BorderColor3 = Color3.new(0, 0, 0)
 UserLabel.Position = UDim2.new(0.80, 0.80, 0.00090, 0)
 UserLabel.Size = UDim2.new(0, 135, 0, 50)
 UserLabel.Font = Enum.Font.GothamSemibold
-UserLabel.Text = "        Your name: "..game.Players.LocalPlayer.Character.Name
+UserLabel.Text = 
+"Your name: "..game.Players.LocalPlayer.Character.Name
 UserLabel.TextColor3 = Color3.new(1, 1, 1)
 UserLabel.TextScaled = true
 UserLabel.TextSize = 14
