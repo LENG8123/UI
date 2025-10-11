@@ -2253,7 +2253,7 @@ end)
 ab.AddSignal(r.MouseButton1Click,function()
 m.Copy()
 ag.WindUI:Notify{
-Title="密钥系统",
+Title="Key System",
 Content="Key link copied to clipboard.",
 Image="key",
 }
@@ -2314,7 +2314,7 @@ if aB then
 handleSuccess(az)
 else
 ag.WindUI:Notify{
-Title="密钥错误",
+Title="Key System. Error",
 Content=aC,
 Icon="triangle-alert",
 }
@@ -6804,7 +6804,7 @@ if al.OnCopy then al.OnCopy()end
 end)
 if not ao then
 ak.WindUI:Notify{
-Title="错误",
+Title="Error",
 Content="The "..an.." is not copied. Error: "..ap,
 Icon="x",
 Duration=5,
