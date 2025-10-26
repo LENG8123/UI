@@ -7212,12 +7212,12 @@ HorizontalAlignment="Right",
 
 local v={
 {
-Title="Cancel",
+Title="取消",
 Variant="Secondary",
 Callback=function()end
 },
 {
-Title="Apply",
+Title="应用",
 Icon="chevron-right",
 Variant="Primary",
 Callback=function()av(Color3.fromHSV(aw.Hue,aw.Sat,aw.Vib),aw.Transparency)end
@@ -10781,17 +10781,17 @@ aq:CreateTopbarButton("Close","x",function()
 aq:SetToTheCenter()
 aq:Dialog{
 
-Title="Close Window",
-Content="Do you want to close this window? You will not be able to open it again.",
+Title="关闭窗口",
+Content="你真的要关闭吗ᖰ•᎔•₎ᖳ.",
 Buttons={
 {
-Title="Cancel",
+Title="取消",
 
 Callback=function()end,
 Variant="Secondary",
 },
 {
-Title="Close Window",
+Title="关闭窗口",
 
 Callback=function()aq:Close():Destroy()end,
 Variant="Primary",
